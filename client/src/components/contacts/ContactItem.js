@@ -30,7 +30,7 @@ const ContactItem = ({ contact }) => {
     )
 }
 
-ContactItme.propTypes = {
+ContactItem.propTypes = {
     contact: PropTypes.object.isRequired,
 }
 
