@@ -11,10 +11,33 @@ import {
 export default (state, action) => {
     switch(action.type) {
         case ADD_CONTACT:
+            console.log('adding contact')
             return {
                 ...state,
                 //return original state and add contact 
                 contacts: [...state.contacts, action.payload]
+            }
+        case UPDATE_CONTACT:
+            console.log('updating contact')
+            return{
+                ...state,
+                contacts: state.contacts.map(contact => contact.id === action.payload.id? action.payload: contact)     
+            }
+        case DELETE_CONTACT:
+            console.log('deleting contact')
+            return{
+                ...state,
+                contacts: state.contacts.filter(contact => contact.id !== action.payload)
+            }
+        case SET_CURRENT:
+            return{
+                ...state,
+                current: action.payload
+            }
+        case CLEAR_CURRENT:
+            return{
+                ...state,
+                current: null
             }
         default:
             return state;
