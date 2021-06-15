@@ -11,7 +11,7 @@ import {
 export default (state, action) => {
     switch(action.type) {
         case ADD_CONTACT:
-            console.log('adding contact')
+            console.log('adding contact', action.payload)
             return {
                 ...state,
                 //return original state and add contact 

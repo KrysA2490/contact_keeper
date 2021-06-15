@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import {v4 as uuidv4} from 'uuid';
 import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
@@ -11,6 +11,7 @@ import {
     FILTER_CONTACT,
     CLEAR_FILTER
 }  from '../types';
+
 
 const ContactState = props => {
     const initialState = {
@@ -30,7 +31,7 @@ const ContactState = props => {
                 type: 'personal'
             },
             {
-                id:1,
+                id:3,
                 name: 'Harry White',
                 email: 'harry@gmail.com',
                 phone: '333-333-3333',
