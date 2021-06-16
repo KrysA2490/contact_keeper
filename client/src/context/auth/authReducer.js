@@ -3,7 +3,7 @@ import {
     REGISTER_FAIL,
     USER_LOADED,
     AUTH_ERROR,
-    LOGIN_SUCESS,
+    LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
     CLEAR_ERRORS
@@ -19,7 +19,8 @@ export default (state, action) => {
                 user: action.payload
             }
         case REGISTER_SUCCESS:
-        // put token in local storage
+        case LOGIN_SUCCESS:
+        // put token in local storage. add data to state
         localStorage.setItem('token', action.payload.token);
         return{
             ...state,
@@ -30,6 +31,7 @@ export default (state, action) => {
         };
         case REGISTER_FAIL:
         case AUTH_ERROR:
+        case LOGIN_FAIL:
         //remove token from local storage
             localStorage.removeItem('token');
         return {
