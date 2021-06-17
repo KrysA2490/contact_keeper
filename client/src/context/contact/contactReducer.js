@@ -24,7 +24,7 @@ export default (state, action) => {
             return {
                 ...state,
                 //return original state and add contact 
-                contacts: [...state.contacts, action.payload],
+                contacts: [action.payload, ...state.contacts, action.payload],
                 loading: false
             }
         case UPDATE_CONTACT:
@@ -38,7 +38,7 @@ export default (state, action) => {
             console.log('deleting contact')
             return{
                 ...state,
-                contacts: state.contacts.filter(contact => contact.id !== action.payload),
+                contacts: state.contacts.filter(contact => contact._id !== action.payload),
                 loading: false
             }
         case CLEAR_CONTACTS:
